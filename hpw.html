@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>===countdown===</title>
+    <title>hp</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
@@ -30,7 +30,8 @@
             if (distance < 0) {
 
                 clearInterval(timer);
-                document.getElementById(id).innerHTML = 'YEAH BABY!';
+                document.getElementById("answer").style.visibility = "hidden";
+                document.getElementById(id).innerHTML = '<img src="https://i.imgur.com/tY60H5X.gif">';
                 document.getElementById("until").style.visibility = "hidden";
 
                 return;
