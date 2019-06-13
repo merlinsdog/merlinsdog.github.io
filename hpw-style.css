@@ -1,0 +1,48 @@
+
+body {
+    background: #51575b; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover, #51575b 0%, #000000 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #51575b 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #51575b 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#51575b', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+html, body, .container {
+    height: 100%;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#answer {
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-size: 20vh;
+    color: #FFFFFF;
+
+}
+
+#lefttogo {
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-size: 10vh;
+    color: #FFFFFF;
+}
+
+#until {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 6vh;
+    color: #FFFFFF;
+    padding-top: 2%;
+}
+
+ul li {
+    text-align: center;
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
