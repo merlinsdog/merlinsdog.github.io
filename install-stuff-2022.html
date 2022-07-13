@@ -1,11 +1,18 @@
 #!/bin/bash
 
-pacman -S --noconfirm git screen nmap vim exfat-utils ntfs-3g intel-ucode rdesktop unrar p7zip rsync openssh etckeeper sshfs cups libmtp mtpfs android-udev android-tools python openvpn w3m newsboat mutt youtube-dl ffmpeg htop dmidecode vpnc net-tools atomicparsley unzip ddrescue testdisk gvfs-smb gvfs-nfs mlocate wget dosfstools htop tk minicom clamav
+pacman -S --noconfirm git screen nmap vim exfat-utils ntfs-3g intel-ucode rdesktop unrar p7zip rsync openssh etckeeper sshfs cups libmtp mtpfs android-udev android-tools python openvpn newsboat mutt youtube-dl ffmpeg htop dmidecode vpnc net-tools atomicparsley unzip ddrescue testdisk gvfs-smb gvfs-nfs mlocate wget dosfstools tk minicom clamav
 
-pacman -S --noconfirm gparted vlc firefox audacious audacity thunderbird ttf-liberation ttf-droid ttf-dejavu ttf-ubuntu-font-family remmina xarchiver terminator libreoffice-fresh-en-GB x2goclient gtk3-print-backends cups-pdf gtk3-print-backends gvfs-mtp owncloud-client chromium epiphany gimp meld evince alsa-utils pulseaudio pavucontrol cdrtools libisoburn cdrdao dvd+rw-tools 
+pacman -S --noconfirm gparted vlc audacious audacity ttf-liberation ttf-droid ttf-dejavu ttf-ubuntu-font-family remmina xarchiver gtk3-print-backends cups-pdf gtk3-print-backends gvfs-mtp gimp meld evince alsa-utils pulseaudio pavucontrol cdrtools libisoburn cdrdao dvd+rw-tools 
 
-pacman -S --noconfirm xed htop links elinks lynx vivaldi filezilla 
+pacman -S --noconfirm firefox vivaldi chromium epiphany links elinks lynx w3m
 
-pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xauth cinnamon metacity gnome-shell zsh mate-icon-theme mate-themes archlinux-wallpaper
+pacman -S --noconfirm terminator xterm zsh
 
+pacman -S --noconfirm libreoffice-fresh-en-gb
+
+pacman -S --noconfirm xed htop filezilla thunderbird 
+
+pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xauth cinnamon metacity gnome-shell mate-icon-theme mate-themes archlinux-wallpaper
+
+echo "optional install xf86-video-intel"
 echo "add exec cinnamon-session to .xinitrc"
