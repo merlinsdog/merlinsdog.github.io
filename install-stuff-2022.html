@@ -1,18 +1,40 @@
 #!/bin/bash
 
-pacman -S --noconfirm git screen nmap vim exfat-utils ntfs-3g intel-ucode rdesktop unrar p7zip rsync openssh etckeeper sshfs cups libmtp mtpfs android-udev android-tools python openvpn newsboat mutt youtube-dl ffmpeg htop dmidecode vpnc net-tools atomicparsley unzip ddrescue testdisk gvfs-smb gvfs-nfs mlocate wget dosfstools tk minicom clamav
+pacman -S --noconfirm iptables nmap openssh sshfs gparted rdesktop python wget git screen
 
-pacman -S --noconfirm gparted vlc audacious audacity ttf-liberation ttf-droid ttf-dejavu ttf-ubuntu-font-family remmina xarchiver gtk3-print-backends cups-pdf gtk3-print-backends gvfs-mtp gimp meld evince alsa-utils pulseaudio pavucontrol cdrtools libisoburn cdrdao dvd+rw-tools 
+pacman -S --noconfirm exfat-utils ntfs-3g intel-ucode unrar p7zip rsync unzip ddrescue testdisk gvfs-smb gvfs-nfs mlocate dosfstools tk minicom clamav
+
+pacman -S --noconfirm libmtp mtpfs android-udev android-tools youtube-dl ffmpeg dmidecode atomicparsley 
+
+pacman -S --noconfirm vlc audacious audacity remmina xarchiver gvfs-mtp gimp meld alsa-utils pulseaudio cdrtools libisoburn cdrdao dvd+rw-tools 
 
 pacman -S --noconfirm firefox vivaldi chromium epiphany links elinks lynx w3m
 
-pacman -S --noconfirm terminator xterm zsh zsh-completions bash-completion
+pacman -S --noconfirm terminator xterm zsh zsh-completions bash-completion gnome-terminal vim
 
-pacman -S --noconfirm libreoffice-fresh-en-gb
+pacman -S --noconfirm libreoffice-fresh-en-gb evince
 
-pacman -S --noconfirm xed htop filezilla thunderbird 
+pacman -S --noconfirm xed htop filezilla thunderbird mutt newsboat
 
 pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xauth cinnamon metacity gnome-shell mate-icon-theme mate-themes archlinux-wallpaper
 
-echo "optional install xf86-video-intel"
+pacman -S --noconfirm nemo-share nemo-terminal nemo-python nemo-fileroller
+
+pacman -S --noconfirm virtualbox virtualbox-guest-iso virtualbox-host-dkms
+
+pacman -S --noconfirm ttf-bitstream-vera ttf-liberation ttf-droid ttf-dejavu
+
+pacman -S --noconfirm terragrunt ansible terraform ansible-lint
+
+pacman -S --noconfirm networkmanager-vpnc networkmanager-pptp net-tools vpnc
+
+pacman -S --noconfirm mate-icon-theme mate-themes
+
+pacman -S --noconfirm gnome-calculator gnome-keyring gnome-backgrounds gnome-themes-extra flameshot
+
+pacman -S --noconfirm cups cups-pdf hplip
+
+pacman -S --noconfirm openvpn networkmanager-openvpn
+
+echo "optional install xf86-video-intel vscodium protonbridge signal-desktop telegram-desktop-bin"
 echo "add exec cinnamon-session to .xinitrc"
