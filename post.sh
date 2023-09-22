@@ -44,5 +44,5 @@ pacman -S --noconfirm docker
 
 pacman -S --noconfirm openvpn networkmanager-openvpn
 
-echo "optional install xf86-video-intel vscodium protonbridge signal-desktop telegram-desktop-bin"
+echo "optional install xf86-video-intel vscodium protonbridge signal-desktop"
 echo "add exec cinnamon-session to .xinitrc"
