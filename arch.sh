@@ -68,7 +68,7 @@ genfstab -U -p /mnt >> /mnt/etc/fstab
 
 grub_part=$(echo "$part" | grep -o "sd.")
 echo -e "\nInstalling grub..."
-arch-chroot /mnt grub-install --recheck /dev/$grub_part
+arch-chroot /mnt grub-install --target=i386-pc /dev/$grub_part
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 echo -e "\nSet and generate locale"
