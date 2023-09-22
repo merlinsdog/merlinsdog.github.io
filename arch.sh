@@ -51,9 +51,7 @@ if [ "$?" -gt "0" ]; then
 fi
 
 echo -e "Setting up mirrorlist for UK based servers"
-grep -A1 "United Kingdom" /etc/pacman.d/mirrorlist | grep -v -e "--" > /etc/pacman.d/mirrorlist.pacsave
-mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.original
-cp /etc/pacman.d/mirrorlist.pacsave /etc/pacman.d/mirrorlist
+reflector -c GB --latest 20 --protocol https --sort age --save /etc/pacman.d/mirrorlist
 
 echo -e "\nBegining Arch Linux install to /dev/$part\n"
 pacstrap /mnt base base-devel grub linux linux-firmware
