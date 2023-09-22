@@ -1,13 +1,18 @@
-Simple scripted install for Archlinux
+# Simple scripted install for Archlinux
 
-TODO:
-verify GPG signature of install ISO
-loadkeys
-check internet connectivity - or output wifi setup command
-partition disk
-create GPT/UEFI partition
-create root partition
-create encrypted home partition
-create swap partition
-sync hardware clock
-microcode
+Not for production use.
+
+## TODO:
+
+1. verify GPG signature of install ISO
+2. loadkeys
+3. check internet connectivity - or output wifi setup command
+4. partition disk
+    1. create GPT/UEFI partition
+    2. create root partition
+    3. create encrypted home partition
+    4. create swap partition
+5. sync hardware clock
+6. microcode
+7. grub or systemd?
+8. do some post install items during install?
