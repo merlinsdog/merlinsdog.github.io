@@ -1,7 +1,7 @@
 #!/bin/bash
 
 lsblk
-echo -en "\nSelect a partition to use as root (ex: /dev/sdaX): "
+echo -en "\nSelect a partition to use as the root partition (ex: /dev/sdaX): "
 read part
 part=$(echo "$part" | grep -o "sd.*")
 part_selected=$(lsblk | grep "$part")
@@ -56,7 +56,7 @@ mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.original
 cp /etc/pacman.d/mirrorlist.pacsave /etc/pacman.d/mirrorlist
 
 echo -e "\nBegining Arch Linux install to /dev/$part\n"
-pacstrap /mnt base base-devel grub
+pacstrap /mnt base base-devel grub linux linux-firmware
 
 if [ "$?" -gt "0" ]; then
 	echo -e "\nInstall failed. Exiting..."
@@ -139,27 +139,14 @@ echo "*filter
 :OUTPUT ACCEPT [0:0]
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 -A INPUT -i lo -j ACCEPT
--A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT
 COMMIT" > /mnt/etc/iptables/iptables.rules
 arch-chroot /mnt systemctl enable iptables.service
 
-echo -e "\nInstalling additional packages"
-arch-chroot /mnt pacman -S --noconfirm git screen nmap vim exfat-utils ntfs-3g intel-ucode rdesktop unrar p7zip rsync openssh etckeeper sshfs cups libmtp mtpfs android-udev android-tools python npm openvpn elinks links lynx w3m newsbeuter mutt youtube-dl ffmpeg colordiff htop dmidecode screenfetch vpnc net-tools atomicparsley unzip ddrescue testdisk gdisk gvfs-smb gvfs-nfs autofs mlocate wget dosfstools htop tk minicom clamav
-
-echo -e "\nInstalling Xorg related stuff"
-arch-chroot /mnt pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xfce4 xfce4-goodies xorg-xauth
-
-echo -e "\nInstalling X based apps"
-arch-chroot /mnt pacman -S --noconfirm gparted vlc firefox audacious audacity thunderbird ttf-liberation ttf-droid ttf-dejavu ttf-ubuntu-font-family remmina xarchiver terminator keepassx2 libreoffice-fresh-en-GB x2goclient gtk3-print-backends cups-pdf gtk3-print-backends gvfs-mtp wireshark-gtk owncloud-client chromium epiphany gimp xfe meld evince alsa-utils pulseaudio pavucontrol xfce4-pulseaudio-plugin xfce4-mixer cdrtools libisoburn cdrdao dvd+rw-tools ripperx libsidplayfp libappindicator-gtk3
-
-echo -e "\nEnabling SSHD..."
-arch-chroot /mnt systemctl enable sshd.service
 
 echo -e "\nPlaceholder for scripting the GPU"
 arch-chroot /mnt lspci | grep -e VGA -e 3D
-echo -en "Do you need to install GPU drivers?"
-#arch-chroot /mnt pacman -S --noconfirm nvidia-340xx nvidia-340xx-utils nvidia-settings
+echo -en "The following GPU's have been found. Be sure to install the correct driver."
 
 
-#echo -e "\nInstall complete. Unmount system"
-#umount -R /mnt
+echo -e "\nInstall complete. Unmount system"
+umount -R /mnt
