@@ -54,7 +54,7 @@ echo -e "Setting up mirrorlist for UK based servers"
 reflector -c GB --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 echo -e "\nBegining Arch Linux install to /dev/$part\n"
-pacstrap -K /mnt base base-devel grub linux linux-firmware
+pacstrap -K /mnt base base-devel grub linux linux-firmware efibootmgr
 
 if [ "$?" -gt "0" ]; then
 	echo -e "\nInstall failed. Exiting..."
