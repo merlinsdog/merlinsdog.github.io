@@ -1,4 +1,6 @@
 nmap
+networkmanager
+dhcpcd
 openssh
 sshfs
 gparted
