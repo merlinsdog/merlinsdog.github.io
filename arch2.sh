@@ -105,7 +105,7 @@ while (true) ; do
 done
 
 echo "Enabling sudo for $username..."
-sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /mnt/etc/sudoers
+sed -i '/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^#//' /mnt/etc/sudoers
 
 echo "Creating xinitrc setting for $username.."
 echo "exec xfce4-session" > /mnt/home/$username/.xinitrc
