@@ -38,6 +38,7 @@ audacious
 audacity
 remmina
 freerdp
+libvncserver
 xarchiver
 gvfs-mtp
 gimp
