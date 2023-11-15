@@ -85,7 +85,8 @@ xfce4-terminal
 pavucontrol
 virtualbox
 virtualbox-guest-iso
-virtualbox-host-dkms
+virtualbox-host-modules-arch
+virtualbox-guest-utils
 ttf-bitstream-vera
 ttf-liberation
 ttf-droid
