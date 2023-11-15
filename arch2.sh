@@ -1,21 +1,17 @@
 #!/bin/bash
 
-# lsblk
+lsblk
 
-# echo -en "\nSelect a disk to install Arch Linux (ex: /dev/sdX): "
-# read disk
+echo -en "\nSelect a disk to install Arch Linux (ex: /dev/sdX): "
+read disk
 
-# if [ ! -e "$disk" ]; then
-#     echo -e "\nError: Disk $disk not found"
-#     exit 1
-# fi
+if [ ! -e "$disk" ]; then
+    echo -e "\nError: Disk $disk not found"
+    exit 1
+fi
 
-disk=/dev/sda
-
-echo "Selected disk: $disk\n\nIs this the correct disk layout? [y/n]: "
+echo "Selected disk: $disk Is this the correct disk layout? [y/n]: "
 read confirmation
-
-
 
 parted --script $disk \
     mklabel gpt \
@@ -24,17 +20,17 @@ parted --script $disk \
     mkpart primary linux-swap 513MiB 1024MiB \
     mkpart primary ext4 1+100%
     
-
+echo "Creating partitions ..."
 mkfs.fat -F32 ${disk}1
 mkswap ${disk}2
 mkfs.ext4 -L ROOT ${disk}3
 
+echo "Mounting partitions ..."
 mount ${disk}3 /mnt
 mount --mkdir ${disk}1 /mnt/boot
 swapon ${disk}2
 
-
-echo "Setting up mirrorlist for UK based servers"
+echo "Setting up mirrorlist for UK based servers ..."
 reflector -c GB --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "Begining Arch Linux install to ${disk}3"
@@ -45,10 +41,10 @@ if [ "$?" -gt "0" ]; then
 	exit 1
 fi
 
-echo "Generating fstab..."
+echo "Generating fstab ..."
 genfstab -U -p /mnt >> /mnt/etc/fstab
 
-echo "Installing grub..."
+echo "Installing grub ..."
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -104,16 +100,16 @@ while (true) ; do
 	fi
 done
 
-echo "Enabling sudo for $username..."
-sed -i '/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^#//' /mnt/etc/sudoers
+echo "Enabling sudo for $username ..."
+sed -i '/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //' /mnt/etc/sudoers
 
-echo "Creating xinitrc setting for $username.."
+echo "Creating xinitrc setting for $username ..."
 echo "exec xfce4-session" > /mnt/home/$username/.xinitrc
 
 echo "Enabling Network Manager ..."
 arch-chroot /mnt systemctl enable NetworkManager
 
-echo "Configuring Firewall..."
+echo "Configuring Firewall ..."
 echo "*filter
 :INPUT DROP [0:0]
 :FORWARD DROP [0:0]
@@ -152,3 +148,4 @@ fi
 
 echo "Install complete. Unmount system"
 umount -R /mnt
+echo "Either reboot or continue to install OS using the post.sh scripts"
