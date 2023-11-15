@@ -1,9 +1,9 @@
 #!/bin/bash
 
-lsblk
+# lsblk
 
-echo -en "\nSelect a disk to install Arch Linux (ex: /dev/sdX): "
-read disk
+# echo -en "\nSelect a disk to install Arch Linux (ex: /dev/sdX): "
+# read disk
 
 # if [ ! -e "$disk" ]; then
 #     echo -e "\nError: Disk $disk not found"
