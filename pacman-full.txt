@@ -116,3 +116,4 @@ yt-dlp
 tigervnc
 jq
 neofetch
+xfburn
