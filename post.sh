@@ -44,6 +44,10 @@ pacman -S man-db man-pages
 
 pacman -S keepassxc nextcloud-client android-tools yt-dlp tigervnc jq neofetch
 
+pacman -S gnome-keyring
+
+pacman -S network-manager-applet
+
 echo "optional install xf86-video-intel vscodium-bin proton-bridge signal-desktop-beta-bin github-desktop-bin clipit brave-bin google-chrome virtualbox-ext-oracle spotify-adblock zotify fslint-gui"
 
 
